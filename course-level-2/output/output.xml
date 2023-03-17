@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230317 10:52:31.180" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="D:\RPA Projects\robocorp-rpa\course-level-2\tasks.robot">
+<test id="s1-t1" name="Order robots from RobotSpareBin Industries Inc" line="51">
+<kw name="Clear folders">
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${out_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230317 10:52:35.906" level="INFO" html="true">Directory '&lt;a href="file://D:\RPA Projects\robocorp-rpa\course-level-2\output"&gt;D:\RPA Projects\robocorp-rpa\course-level-2\output&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230317 10:52:35.905" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${screenshot_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230317 10:52:35.906" level="INFO" html="true">Directory '&lt;a href="file://D:\RPA Projects\robocorp-rpa\course-level-2\screenshots"&gt;D:\RPA Projects\robocorp-rpa\course-level-2\screenshots&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230317 10:52:35.906" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${receipt_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230317 10:52:35.906" level="INFO" html="true">Directory '&lt;a href="file://D:\RPA Projects\robocorp-rpa\course-level-2\receipts"&gt;D:\RPA Projects\robocorp-rpa\course-level-2\receipts&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230317 10:52:35.906" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${out_dir}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<msg timestamp="20230317 10:52:35.906" level="INFO" html="true">Listing contents of directory '&lt;a href="file://D:\RPA Projects\robocorp-rpa\course-level-2\output"&gt;D:\RPA Projects\robocorp-rpa\course-level-2\output&lt;/a&gt;'.</msg>
+<msg timestamp="20230317 10:52:35.906" level="FAIL">PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\RPA Projects\\robocorp-rpa\\course-level-2\\output\\output.xml'</msg>
+<status status="FAIL" starttime="20230317 10:52:35.906" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${screenshot_dir}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.906" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${receipt_dir}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.906" endtime="20230317 10:52:35.906"/>
+</kw>
+<status status="FAIL" starttime="20230317 10:52:35.899" endtime="20230317 10:52:35.906"/>
+</kw>
+<kw name=" Open order page">
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.922"/>
+</kw>
+<kw name="Get orders">
+<var>${orders}</var>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.922"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${row}"/>
+<kw name="Close the constitution modal">
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.922"/>
+</kw>
+<kw name="Build Robot">
+<arg>${row}</arg>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.922"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY_AMOUNT}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Preview Robot</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.922"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.937"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY_AMOUNT}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Submit Order</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${100}</value>
+<iter>
+<var name="${i}"/>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${alert}</var>
+<arg>//div[@class="alert alert-danger"]</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert}'=='True'">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>//button[@id="order"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</branch>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</if>
+<if>
+<branch type="IF" condition="'${alert}'=='False'">
+<break>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</break>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</branch>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</if>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</iter>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</for>
+<kw name="Take screenshot of the robot">
+<var>${screenshot}</var>
+<arg>${row}[Order number]</arg>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${row}[Order number]' Robot Ordered'</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<kw name="Create receipt PDF with robot preview image">
+<arg>${row}[Order number]</arg>
+<arg>${screenshot}</arg>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY_AMOUNT}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Order another Robot</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230317 10:52:35.937" endtime="20230317 10:52:35.937"/>
+</kw>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.937"/>
+</iter>
+<status status="NOT RUN" starttime="20230317 10:52:35.922" endtime="20230317 10:52:35.937"/>
+</for>
+<kw name="Create ZIP file of all receipts">
+<status status="NOT RUN" starttime="20230317 10:52:35.953" endtime="20230317 10:52:35.953"/>
+</kw>
+<kw name="Close Browser and cleanup">
+<status status="NOT RUN" starttime="20230317 10:52:35.962" endtime="20230317 10:52:35.963"/>
+</kw>
+<status status="FAIL" starttime="20230317 10:52:35.899" endtime="20230317 10:52:35.966">PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\RPA Projects\\robocorp-rpa\\course-level-2\\output\\output.xml'</status>
+</test>
+<doc>Orders robots from RobotSpareBin Industries Inc.
+Saves the order HTML receipt as a PDF file.
+Saves the screenshot of the ordered robot.
+Embeds the screenshot of the robot to the PDF receipt.
+Creates ZIP archive of the receipts and the images.
+Show model info Button
+click and capture the model-info Table content. It has thead and tbody.
+Head - select id = head Body - radio required value from 1 to 6
+upadte Legs and Addrress
+submit id=order button</doc>
+<status status="FAIL" starttime="20230317 10:52:31.183" endtime="20230317 10:52:35.969"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
